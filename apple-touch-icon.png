@@ -1,0 +1,52 @@
+# Refuge Seconde Chance — Site PWA
+
+Site vitrine complet pour un refuge d'adoption de chiens et chats.
+HTML / CSS / JavaScript pur, sans framework. Thème clair/sombre, animations, et installable comme application (PWA).
+
+## Fichiers
+
+```
+index.html            → page complète (HTML + CSS + JS intégrés)
+manifest.json         → configuration PWA
+service-worker.js     → cache hors-ligne
+icon-192.png          → icône app
+icon-512.png          → icône app
+icon-maskable.png     → icône adaptative Android
+apple-touch-icon.png  → icône iOS
+favicon.png           → favicon onglet
+```
+
+> Le CSS et le JavaScript sont intégrés dans `index.html` pour qu'il fonctionne
+> comme un seul fichier. Pour revenir à la structure `css/style.css` + `js/app.js`,
+> il suffit d'extraire les blocs `<style>` et `<script>` dans des fichiers liés.
+
+## Lancer en local
+
+La PWA et le service worker exigent un serveur (pas un double-clic `file://`) :
+
+```bash
+cd refuge
+python3 -m http.server 8080
+# puis ouvrez http://localhost:8080
+```
+
+## Mettre en ligne
+
+Déposez le dossier sur n'importe quel hébergement statique **en HTTPS**
+(Netlify, Vercel, GitHub Pages, OVH...). Le HTTPS est requis pour l'installation
+de l'application et le mode hors-ligne.
+
+## À personnaliser
+
+- **Messenger** : remplacez `RefugeSecondeChance` par le nom réel de votre page
+  Facebook partout où apparaît `https://m.me/RefugeSecondeChance` (3 endroits).
+- **Coordonnées** : téléphone, email et adresse dans la section Contact.
+- **Animaux** : modifiez le tableau `const pets = [...]` dans `index.html`.
+- **Témoignages** : tableau `const testimonials = [...]`.
+- **Photos** : les images de démonstration viennent d'Unsplash ; remplacez-les
+  par vos propres photos (idéalement hébergées avec le site pour le mode hors-ligne).
+
+## Note sur les images
+
+Les photos de démonstration sont chargées depuis Unsplash. Si une image ne se
+charge pas, une icône 🐾 s'affiche automatiquement à la place.
